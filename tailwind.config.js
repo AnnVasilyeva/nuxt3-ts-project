@@ -5,10 +5,17 @@ export default {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './app.vue',
-    './plugins/**/*.{js,ts}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#101010',  // черный
+        secondary: '#E8E8E8', // серый-hover
+        violet: '#E2BEFF',      // светло-фиолетовый
+        light: '#F3F3F3',     // светло-серый
+        gray: '#868686' //серый
+      },
+    },
   },
   plugins: [],
 }
