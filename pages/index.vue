@@ -1,7 +1,7 @@
 <template>
-  <div class="mt-[120px] bg-white">
-    <h1 class="text-[84px] mb-[60px]">Articles</h1>
-    <div class="grid justify-center gap-8
+  <div class="bg-white flex flex-col items-center lg:block">
+    <h1 class="text-[84px] lg:mb-[60px]">Articles</h1>
+    <div class="grid justify-center lg:gap-8
 		grid-cols-1
 		sm:grid-cols-2
 		lg:grid-cols-3
@@ -11,7 +11,7 @@
 			v-for="post in paginatedPosts"
 			:key="post.id"
 			:title="post.title"
-			:description="post.description"
+			:description="post.preview"
 			:image="post.image"
 			:link="`/post/${post.id}`"
 		/>
@@ -26,37 +26,33 @@
 </template>
 
 <script setup lang="ts">
-import { usePosts } from '~/composables/usePosts'
+	import { usePosts } from '~/composables/usePosts'
 
-const { getPosts } = usePosts()
-const posts = ref<Post[]>([])
+	const { getPosts } = usePosts()
+	const posts = ref<Post[]>([])
 
-const currentPage = ref(1)
-const postsPerPage = 8
+	const currentPage = ref(1)
+	const postsPerPage = 8
 
-// Загружаем все посты при монтировании
-onMounted(async () => {
-  posts.value = await getPosts()
-})
+	onMounted(async () => {
+	posts.value = await getPosts()
+	})
 
-// Вычисляем посты, которые нужно показать
-const paginatedPosts = computed(() => {
-  const start = (currentPage.value - 1) * postsPerPage
-  const end = start + postsPerPage
-  return posts.value.slice(start, end)
-})
+	const paginatedPosts = computed(() => {
+	const start = (currentPage.value - 1) * postsPerPage
+	const end = start + postsPerPage
+	return posts.value.slice(start, end)
+	})
 
-// Количество страниц
-const totalPages = computed(() =>
-  Math.ceil(posts.value.length / postsPerPage)
-)
+	const totalPages = computed(() =>
+	Math.ceil(posts.value.length / postsPerPage)
+	)
 
-// Переключение страниц
-const changePage = (page: number) => {
-  if (page >= 1 && page <= totalPages.value) {
-    currentPage.value = page
-  }
-}
+	const changePage = (page: number) => {
+	if (page >= 1 && page <= totalPages.value) {
+		currentPage.value = page
+	}
+	}
 </script>
 
 
