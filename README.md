@@ -1,75 +1,18 @@
-# Nuxt Minimal Starter
+# 📰 QTIM Blog
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## 🎯 Цель задания
 
-## Setup
+Реализовать верстку и функционал шаблона блога по предоставленному макету, а также подключить взаимодействие с API.
 
-Make sure to install dependencies:
+Стек технологий: Nuxt 3 версии, TypeScript.
 
-```bash
-# npm
-npm install
+---
 
-# pnpm
-pnpm install
+## 📋 Основные задачи
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Реализовать **верстку** шаблона блога по макету из Figma
+- Подключить **взаимодействие с API**
+- Реализовать **модуль блога**, включающий:
+  - Вывод списка статей
+  - Пагинацию на фронтенде
+  - Переход на **детальную страницу** статьи
